@@ -1,38 +1,38 @@
 var bio = {
 	'name' : 'Istrate Adrian',
 	'role' : 'Infrastructure Specialist AIX Linux',
-	'contact info' : {
+	'contacts' : {
 		'mobile' : '0722520666',
 		'email' : 'adrian.istrate@ymail.com',
-		'location' : 'Brasov'
+		'location' : 'Brașov'
 	},	
-	'bioPic' : 'https://scontent.fotp3-2.fna.fbcdn.net/v/t1.0-9/12063469_1098647620159042_5040254649106363259_n.jpg?oh=25cb5d3e24b09cd85a56d17d9e7341e3&oe=58CC76BF',
+	'bioPic' : 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAARAAAAAJDU5ZjU1MzNjLTQ0OWQtNDE4MS1iMDc0LTNkYzNhN2QxMzdjYw.jpg',
 	'welcome message' : 'This is a test',
-	'skills' : ['Linux', 'Git', 'JS', 'Apache', 'WepSphere jython scripting', "i dont know", "funny", "honey"],
+	'skills' : ["Linux", "Git", "JavaScript", "Apache", "WepSphere jython scripting", "", "", ""],
 }
 
 var education = {
 	"schools" : [
 	{
-		"name" : "Liceul ...",
-		"city" : "Brasov, Romania",
-		"degree" : "Diploma",
-		"majors" : "Specialitate",
-		"dates" : 2003,
+		"name" : "Liceul Grup Școlar de Arte si Meserii",
+		"location" : "Brașov",
+		"degree" : "Tehncian în Activități Financiare și Comerciale",
+		"majors" : "Contabilitate",
+		"dates" : "2003-2007",
 	},
 	{
-		"name" : "Liceul ...",
-		"city" : "Brașov, Romasnia",
-		"degree" : "Diploma",
-		"majors" : "Specialitate",
-		"dates" : 2004,
+		"name" : "Facultatea .",
+		"location" : "Brașov",
+		"degree" : "-",
+		"majors" : "Contabilitate și Informatică de gestiune",
+		"dates" : "2014-",
 	}
 	],
-	"Courses" : [
+	"courses" : [
 	{
 		"title" : "JavaScript Crash Course",
 		"provider" : "Udacity",
-		"dates" : 2016,
+		"dates" : "2016 ",
 		"url" : "https://classroom.udacity.com/courses/ud804",
 	},
 	{
@@ -50,21 +50,21 @@ var work = {
 		"title" : "Employee1",
 		"dates" : "undefined",
 		"description" : "Lorem ipsum sin dolor awadafdadfdaf",
-		"location" : "Brasov"
+		"location" : "Brașov"
 	},
 	{
 		"employer" : "Employer2",
 		"title" : "Employee2",
 		"dates" : "undefined",
 		"description" : "To be filled in",
-		"location" : "Cluj Napoca"
+		"location" : "Cluj-Napoca"
 	},
 	{
 		"employer" : "Employer3",
 		"title" : "Employee3",
 		"dates" : "undefined",
 		"description" : "To be filled in",
-		"location" : "Bucuresti"
+		"location" : "București"
 	},
 	{
 		"employer" : "Employer4",
@@ -78,35 +78,39 @@ var work = {
 var projects = {
 	projects : [
 	{
-		"title" : "",
-		"dates" : "",
-		"description" : "",
-		"images" : [
-		]
+		"title" : "Projects",
+		"dates" : "in progress",
+		"description" : "My fancy project",
+		"images" : [ "https://media2.giphy.com/media/ORWPpKNFAjrAk/200w.gif#6", "https://media4.giphy.com/media/suxgXSEOb3EFq/200w.gif#4" ]
 	},
 	{
-		"title" : "",
-		"dates" : "",
-		"description" : "",
-		"images" : [
-		],
+		"title" : "Projects 2",
+		"dates" : "2015",
+		"description" : "Old project",
+		"images" : [ 
+		]
 	}	
 	]
 }
 
 function displayHeader (){
-	$('#header').append(HTMLbioPic.replace("%data%", bio.bioPic))
-	$('#header').append(HTMLheaderName.replace("%data%", bio.name))
-	$('#header').append(HTMLheaderRole.replace("%data%", bio.role))
-	$('#header').append()
+	
 	if (bio.skills.length > 0) {
-		$('#header').append(HTMLskillsStart);
-		var skill;
+		$('#header').prepend(HTMLskillsStart);
 		for (skill in bio.skills) {
 			var prettySkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$('#skills').append(prettySkill);
 		}
 	}	
+	$('#header').prepend(HTMLbioPic.replace("%data%", bio.bioPic))
+	$('#header').prepend(HTMLheaderRole.replace("%data%", bio.role))
+	$('#header').prepend(HTMLheaderName.replace("%data%", bio.name))
+	var customContact = HTMLcontactGeneric.replace("%contact%", "Linkedin")
+	var customContact = customContact.replace("%data%", "<a id=linkedin href=https://ro.linkedin.com/in/adrian-istrate-20779277>https://ro.linkedin.com/in/adrian-istrate</a>")
+	$('#topContacts').append(customContact)
+	$('#topContacts').append(HTMLmobile.replace("%data%", bio.contacts.mobile))
+	$('#topContacts').append(HTMLemail.replace("%data%", bio.contacts.email))
+	$('#topContacts').append(HTMLlocation.replace("%data%", bio.contacts.location))	
 }
 
 function displayWork () {
@@ -129,6 +133,73 @@ function displayWork () {
 	}
 }
 
+projects.display = function () {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		
+		var prettyPjTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(
+			prettyPjTitle);
+
+		var prettyPjDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(
+			prettyPjDates);
+
+		var prettyPjDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(
+			prettyPjDescription);
+
+		if ( projects.projects[project].images.length > 0 ) {
+			for (image in projects.projects[project].images) {
+				var prettyPjImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(
+				prettyPjImage);
+			};
+		};
+	};	
+}
+
+
+education.display = function () {
+
+	for ( school in education.schools) {
+		$("#education").append(HTMLschoolStart)
+
+		var prettySchoolName = HTMLschoolName.replace("%data%", education.schools[school].name );
+		var prettySchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree );
+		$('.education-entry:last').append(prettySchoolName + prettySchoolDegree);
+
+
+		var prettySchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates );
+		$('.education-entry:last').append(prettySchoolDates);
+
+		var prettySchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location );
+		$('.education-entry:last').append(prettySchoolLocation);
+
+		var prettySchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors );
+		$('.education-entry:last').append(prettySchoolMajor);
+
+	};
+
+	$("#education").append(HTMLonlineClasses)
+
+	for ( course in education.courses ) {
+		$("#education").append(HTMLschoolStart)
+
+		var prettyOnlineProvider = HTMLonlineSchool.replace("%data%", education.courses[course].provider );
+		var prettyOnlineTitle = HTMLonlineTitle.replace("%data%", education.courses[course].title );
+		$('.education-entry:last').append(prettyOnlineTitle + prettyOnlineProvider);
+
+		var prettyOnlineDates = HTMLonlineDates.replace("%data%", education.courses[course].dates );
+		$('.education-entry:last').append(prettyOnlineDates);
+
+		var prettyOnlineURL = HTMLonlineURL.replace("%data%", education.courses[course].url );
+		$('.education-entry:last').append(prettyOnlineURL);
+		$('.education-entry:last').append("<br><hr>")
+
+	};
+}
+
 function showJobLocations (work_obj) {
 	var locationArray = [];
 
@@ -143,23 +214,8 @@ function showJobLocations (work_obj) {
 
 displayHeader ()
 displayWork ()
-projects.display = function () {
-
-}
-function inName(){
-	
-	split_names = bio.name.trim().split(" ");
-	last_name = split_names[1].toUpperCase();
-	first_name = split_names[0].slice(0,1).toUpperCase() + split_names[0].slice(1).toLowerCase();
-
-	return first_name + " " + last_name 
-	console.log(first_name + " " + last_name)
-}
-
-console.log(showJobLocations (work))
-$("#main").append(internationalizeButton)
+education.display ()
+projects.display ()
 
 
-
-inName(bio.name)
-
+$("#mapDiv").append(googleMap);
