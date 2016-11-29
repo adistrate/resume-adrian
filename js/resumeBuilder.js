@@ -106,7 +106,7 @@ function displayHeader (){
 	$('#header').prepend(HTMLheaderRole.replace("%data%", bio.role))
 	$('#header').prepend(HTMLheaderName.replace("%data%", bio.name))
 	var customContact = HTMLcontactGeneric.replace("%contact%", "Linkedin")
-	var customContact = customContact.replace("%data%", "<a id=linkedin href=https://ro.linkedin.com/in/adrian-istrate-20779277>https://ro.linkedin.com/in/adrian-istrate</a>")
+	var customContact = customContact.replace("%data%", "<a id=linkedin href=https://www.linkedin.com/in/adrian-istrate>https://www.linkedin.com/in/adrian-istrate</a>")
 	$('#topContacts').append(customContact)
 	$('#topContacts').append(HTMLmobile.replace("%data%", bio.contacts.mobile))
 	$('#topContacts').append(HTMLemail.replace("%data%", bio.contacts.email))
