@@ -95,24 +95,23 @@ var projects = {
 
 
 function displayHeader (){
-	
-	if (bio.skills.length > 0) {
+	if (bio.skills.length > 0){
 		$('#header').prepend(HTMLskillsStart);
-		for (skill in bio.skills) {
+		for (skill in bio.skills){
 			var prettySkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			$('#skills').append(prettySkill);
 		}
 	}	
-	$('#header').prepend(HTMLbioPic.replace("%data%", bio.bioPic))
-	$('#header').prepend(HTMLheaderRole.replace("%data%", bio.role))
-	$('#header').prepend(HTMLheaderName.replace("%data%", bio.name))
-	var customContact = HTMLcontactGeneric.replace("%contact%", "Linkedin")
-	var customContact = customContact.replace("%data%", "<a id=linkedin href=https://www.linkedin.com/in/adrian-istrate>https://www.linkedin.com/in/adrian-istrate</a>")
-	$('#topContacts').append(customContact)
-	$('#topContacts').append(HTMLmobile.replace("%data%", bio.contacts.mobile))
-	$('#topContacts').append(HTMLemail.replace("%data%", bio.contacts.email))
-	$('#topContacts').append(HTMLlocation.replace("%data%", bio.contacts.location))	
-}
+	$('#header').prepend(HTMLbioPic.replace("%data%", bio.bioPic));
+	$('#header').prepend(HTMLheaderRole.replace("%data%", bio.role));
+	$('#header').prepend(HTMLheaderName.replace("%data%", bio.name));
+	var customContact = HTMLcontactGeneric.replace("%contact%", "Linkedin");
+	var customContact = customContact.replace("%data%", "<a id=linkedin href=https://www.linkedin.com/in/adrian-istrate>https://www.linkedin.com/in/adrian-istrate</a>");
+	$('#topContacts').append(customContact);
+	$('#topContacts').append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+	$('#topContacts').append(HTMLemail.replace("%data%", bio.contacts.email));
+	$('#topContacts').append(HTMLlocation.replace("%data%", bio.contacts.location));
+};
 
 function displayWork () {
 	for (job in work.jobs) {
@@ -222,10 +221,10 @@ function workTop () {
 displayHeader ()
 
 // Set the margin top size according to the header size and update on resize
-workTop ()
+workTop ();
 
 $(window).on('resize', function() {
-	workTop()
+	workTop();
 }).trigger('resize');
 
 displayWork ()
