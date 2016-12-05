@@ -93,6 +93,7 @@ var projects = {
 	]
 }
 
+
 function displayHeader (){
 	
 	if (bio.skills.length > 0) {
@@ -211,11 +212,24 @@ function showJobLocations (work_obj) {
 	return locationArray
 }
 
+function workTop () {
+	var p = document.getElementById("workExperience"),
+   		header = document.getElementById("header"),
+  		h = header.clientHeight;
+	p.style.marginTop=h+"px";
+}
 
 displayHeader ()
+
+// Set the margin top size according to the header size and update on resize
+workTop ()
+
+$(window).on('resize', function() {
+	workTop()
+}).trigger('resize');
+
 displayWork ()
 education.display ()
 projects.display ()
-
 
 $("#mapDiv").append(googleMap);
