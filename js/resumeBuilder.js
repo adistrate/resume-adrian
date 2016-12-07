@@ -46,24 +46,56 @@ var education = {
 var work = {
 	"jobs" : [
 	{
-		"employer" : "Employer1",
-		"title" : "Employee1",
-		"dates" : "undefined",
-		"description" : "Lorem ipsum sin dolor awadafdadfdaf",
+		"employer" : "IBM România",
+		"title" : "IBM Infrastructure Specialist AIX Linux",
+		"dates" : "2016 - present",
+		"description" : "Install, configure and administer WebSphere Application Servers <br> \
+						Install, configure and administer WepSphere Enterprise Applications <br> \
+						Install, configure and administer HTTP Servers",
 		"location" : "Brașov"
 	},
 	{
-		"employer" : "Employer2",
-		"title" : "Employee2",
-		"dates" : "undefined",
+		"employer" : "Steelcase",
+		"title" : "Technical support Specialist",
+		"dates" : "2016 - 2016",
 		"description" : "To be filled in",
 		"location" : "Cluj-Napoca"
 	},
 	{
-		"employer" : "Employer3",
-		"title" : "Employee3",
+		"employer" : "Pentalog România",
+		"title" : "System Administrator",
 		"dates" : "undefined",
-		"description" : "To be filled in",
+		"description" : "Administrarea parcului IT a companiei <br> \
+ Recepție de echipamente noi și pregătirea pentru exploatare <br> \
+- Instalare de sistem de operare, integrare Active Directory, drepturi de utilizator. <br> \
+ <br> \
+Distribuirea cererile primite prin aplicarea de ticketing <br> \
+Pregătirea mediilor producție și de testare <br> \
+ -Instalarea si configurarea serverelor de web (Tomcat Nginx Apache) <br> \
+- Baze de date instalare și configurare (MySQL, PostgreSQL mogodb) <br> \
+- instalare si configurare de aplicati tip cPanel <br> \
+- proxy configurare în servere web <br> \
+- adaugare editare intrări de DNS <br> \
+ <br> \
+Deployment automat si manual <br> \
+- Configurarea Jenkins folosind scripturi bash în raport cu codul sursă gestionat prin GIT <br> \
+   inclus script de backup (fișiere și baze de date) <br> \
+- opțiuni de declanșare (manual, automat atunci când codul primeste actualizări in git, programat la timp specifice) <br> \
+- Deployment manual pachete <br> \
+ <br> \
+Configurarea și monitorizarea serverelor telefonie <br> \
+- Instalatie si configurare de servere asterisk <br> \
+- Configurarea telefoane IP si aplicatii <br> \
+ <br> \
+Active Directory Management <br> \
+- Adăugarea utilizatori și grupuri, configurarea premisiunilor <br> \
+ <br> \
+DHCP <br> \
+- Adăugare rezervări si actualizare <br> \
+ <br> \
+E-mail <br> \
+- Instalatie si configurare de servere  postfix <br> \
+- Configurarea diversi clienti de e-mail",
 		"location" : "București"
 	},
 	{
@@ -80,7 +112,7 @@ var projects = {
 	{
 		"title" : "Projects",
 		"dates" : "in progress",
-		"description" : "My fancy project",
+		"description" : "My fancy project tada",
 		"images" : [ "https://media2.giphy.com/media/ORWPpKNFAjrAk/200w.gif#6", "https://media4.giphy.com/media/suxgXSEOb3EFq/200w.gif#4" ]
 	},
 	{
