@@ -253,6 +253,7 @@ function workTop () {
 displayHeader ()
 
 // Set the margin top size according to the header size and update on resize
+setTimeout(workTop, 100); // set timeout to fix incorrect value for header size
 workTop ();
 
 $(window).on('resize', function() {
