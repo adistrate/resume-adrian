@@ -1,4 +1,4 @@
-var bio = {
+﻿var bio = {
 	'name' : 'Istrate Adrian',
 	'role' : 'Infrastructure Specialist AIX Linux',
 	'contacts' : {
@@ -265,7 +265,8 @@ function workTop () {
 displayHeader ()
 
 // Set the margin top size according to the header size and update on resize
-setTimeout(workTop, 100); // set timeout to fix incorrect value for header size
+setTimeout(workTop, 150); // set timeout to fix incorrect value for header size
+
 workTop ();
 
 $(window).on('resize', function() {
