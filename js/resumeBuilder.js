@@ -49,9 +49,18 @@ var work = {
 		"employer" : "IBM România",
 		"title" : "IBM Infrastructure Specialist AIX Linux",
 		"dates" : "2016 - present",
-		"description" : "Install, configure and administer WebSphere Application Servers <br> \
-						Install, configure and administer WepSphere Enterprise Applications <br> \
-						Install, configure and administer HTTP Servers",
+		"description" : "<b>WebSphere Application Servers </b><br> \
+	- installare <br> \
+	- configurare <br> \
+	- administrare <br> \
+<b>WepSphere Enterprise Applications </b> <br> \
+	- installare <br> \
+	- configurare <br> \
+	- administrare <br> \
+<b>HTTP Servers</b> <br> \
+	- installare <br> \
+	- configurare <br> \
+	- administrare <br> ",
 		"location" : "Brașov"
 	},
 	{
@@ -65,36 +74,36 @@ var work = {
 		"employer" : "Pentalog România",
 		"title" : "System Administrator",
 		"dates" : "undefined",
-		"description" : "Administrarea parcului IT a companiei <br> \
- Recepție de echipamente noi și pregătirea pentru exploatare <br> \
+		"description" : "<b>Administrarea parcului IT a companiei </b><br> \
+<b>Recepție de echipamente noi și pregătirea pentru exploatare</b> <br> \
 - Instalare de sistem de operare, integrare Active Directory, drepturi de utilizator. <br> \
  <br> \
-Distribuirea cererile primite prin aplicarea de ticketing <br> \
-Pregătirea mediilor producție și de testare <br> \
+<b>Distribuirea cererile primite prin aplicarea de ticketing</b> <br> \
+<b>Pregătirea mediilor producție și de testare</b> <br> \
  -Instalarea si configurarea serverelor de web (Tomcat Nginx Apache) <br> \
 - Baze de date instalare și configurare (MySQL, PostgreSQL mogodb) <br> \
 - instalare si configurare de aplicati tip cPanel <br> \
 - proxy configurare în servere web <br> \
 - adaugare editare intrări de DNS <br> \
  <br> \
-Deployment automat si manual <br> \
+<b>Deployment automat si manual</b><br> \
 - Configurarea Jenkins folosind scripturi bash în raport cu codul sursă gestionat prin GIT <br> \
    inclus script de backup (fișiere și baze de date) <br> \
 - opțiuni de declanșare (manual, automat atunci când codul primeste actualizări in git, programat la timp specifice) <br> \
 - Deployment manual pachete <br> \
  <br> \
-Configurarea și monitorizarea serverelor telefonie <br> \
+<b>Configurarea și monitorizarea serverelor telefonie </b><br> \
 - Instalatie si configurare de servere asterisk <br> \
 - Configurarea telefoane IP si aplicatii <br> \
  <br> \
-Active Directory Management <br> \
+<b>Active Directory Management</b> <br> \
 - Adăugarea utilizatori și grupuri, configurarea premisiunilor <br> \
  <br> \
-DHCP <br> \
+<b>DHCP </b><br> \
 - Adăugare rezervări si actualizare <br> \
  <br> \
-E-mail <br> \
-- Instalatie si configurare de servere  postfix <br> \
+<b>E-mail</b> <br> \
+- Instalare si configurare de servere postfix <br> \
 - Configurarea diversi clienti de e-mail",
 		"location" : "București"
 	},
@@ -154,14 +163,13 @@ function displayWork () {
 	
 		$('.work-entry:last').append(
 			prettyEmployerTitle);
-	
-		var prettyDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		$('.work-entry:last').append(
-			prettyDates);
-	
 		var prettyDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$('.work-entry:last').append(
 			prettyDescription);
+
+		var prettyDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		$('.work-entry:last').append(
+			prettyDates);
 	}
 }
 
@@ -173,21 +181,23 @@ projects.display = function () {
 		$(".project-entry:last").append(
 			prettyPjTitle);
 
-		var prettyPjDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		$(".project-entry:last").append(
-			prettyPjDates);
 
+		$(".project-entry:last").append(HTMLprojectPanel);
 		var prettyPjDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		$(".project-entry:last").append(
+		$(".panel:last").append(
 			prettyPjDescription);
 
 		if ( projects.projects[project].images.length > 0 ) {
 			for (image in projects.projects[project].images) {
 				var prettyPjImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last").append(
+				$(".panel:last").append(
 				prettyPjImage);
 			};
 		};
+		
+		var prettyPjDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(
+			prettyPjDates);
 	};	
 }
 
@@ -250,6 +260,8 @@ function workTop () {
 	p.style.marginTop=h+"px";
 }
 
+
+
 displayHeader ()
 
 // Set the margin top size according to the header size and update on resize
@@ -261,7 +273,20 @@ $(window).on('resize', function() {
 }).trigger('resize');
 
 displayWork ()
+
+
 education.display ()
 projects.display ()
 
 $("#mapDiv").append(googleMap);
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+  }
+}
