@@ -81,7 +81,7 @@ a {
 }
 
 button.accordion {
-    /* background-color: #ABA5CC; */
+    background-color: transparent;
     padding: 1px 0 1px 0;
     color: #444;
     cursor: pointer;
@@ -92,9 +92,21 @@ button.accordion {
     font-size: 15px;
     transition: 0.4s;
 }
+button.accordion:after {
+  position: absolute;
+  right: 20px;
+  content: "";
+  background: url(../images/expand.png);
+  width: 16px;
+  height: 16px;
+}
 
 button.accordion.active, button.accordion:hover {
     background-color: #ddd;
+}
+
+button.accordion.active:after {
+  transform: scaleY(-1);
 }
 
 div.panel {
