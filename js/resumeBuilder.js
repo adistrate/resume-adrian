@@ -48,17 +48,24 @@ var work = {
 	{
 		"employer" : "IBM România",
 		"title" : "IBM Infrastructure Specialist AIX Linux",
-		"dates" : "2016 - present",
+		"dates" : "aprilie 2016 – Prezent (9 luni)",
 		"description" : "<b>WebSphere Application Servers </b><br> \
-	- installare <br> \
+	- instalare <br> \
+		&emsp; instalare binare <br> \
 	- configurare <br> \
+		&emsp; creare profile <br> \
+		&emsp; creare resurse jms <br> \
+		&emsp; creare bus de mesaje <br> \
+		&emsp; creare webservere <br> \
+		&emsp; creare resurse jdbc <br> \
+		&emsp; configurații de performanță <br> \
 	- administrare <br> \
 <b>WepSphere Enterprise Applications </b> <br> \
-	- installare <br> \
+	- instalare <br> \
 	- configurare <br> \
 	- administrare <br> \
 <b>HTTP Servers</b> <br> \
-	- installare <br> \
+	- instalare <br> \
 	- configurare <br> \
 	- administrare <br> ",
 		"location" : "Brașov"
@@ -66,14 +73,26 @@ var work = {
 	{
 		"employer" : "Steelcase",
 		"title" : "Technical support Specialist",
-		"dates" : "2016 - 2016",
-		"description" : "To be filled in",
+		"dates" : "octombrie 2015 – aprilie 2016 (7 luni)",
+		"description" : "<b> Suport tehnic pentru produsele tehnologice : </b> <br> \
+		<b>Media:Scape </b><br> \
+	- instalare <br> \
+	- configurare <br> \
+	- administrare <br> \
+		<b>RoomWizard</b> <br> \
+	- instalare <br> \
+	- configurare <br> \
+	- administrare <br> \
+		<b>Eno witeboard interactiv</b> <br> \
+	- instalare <br> \
+	- configurare <br> \
+	- administrare <br>",
 		"location" : "Cluj-Napoca"
 	},
 	{
 		"employer" : "Pentalog România",
 		"title" : "System Administrator",
-		"dates" : "undefined",
+		"dates" : "mai 2012 - octombire 2015 (3 ani și 6 luni)",
 		"description" : "<b>Administrarea parcului IT a companiei </b><br> \
 <b>Recepție de echipamente noi și pregătirea pentru exploatare</b> <br> \
 - Instalare de sistem de operare, integrare Active Directory, drepturi de utilizator. <br> \
