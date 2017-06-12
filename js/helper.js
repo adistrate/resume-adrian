@@ -33,6 +33,7 @@ var HTMLworkStart = "<div class='work-entry'></div>";
 var HTMLworkEmployer = "<button class='accordion'>%data%";
 var HTMLworkTitle = " - %data%</button>";
 var HTMLworkDates = "<div class='date-text'>%data%</div>";
+var HTMLworkDuration = "<div class='date-text'>(%data%)</div>";
 var HTMLworkLocation = "<div class='location-text'>%data%</div>";
 var HTMLworkDescription = "<div class = 'panel'><p><br>%data%</p></div>";
 
@@ -59,6 +60,17 @@ var HTMLonlineURL = "<br><a href='#'>%data%</a>";
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
 
+var months = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+
+function calcDuration (d1, d2) {
+  d1 = new Date(d1);
+  d2 = new Date(d2);
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth();
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
+}
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.

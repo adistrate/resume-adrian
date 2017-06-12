@@ -8,8 +8,9 @@
 	},	
 	'bioPic' : 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAARAAAAAJDU5ZjU1MzNjLTQ0OWQtNDE4MS1iMDc0LTNkYzNhN2QxMzdjYw.jpg',
 	'welcome message' : 'This is a test',
-	'skills' : ["Linux", "Git", "JavaScript", "Apache", "WepSphere jython scripting", "", "", ""],
+	'skills' : ["Linux", "Git", "JavaScript", "Apache", "WepSphere jython scripting"],
 }
+moment.locale('ro');
 
 var education = {
 	"schools" : [
@@ -43,12 +44,13 @@ var education = {
 	}	
 	]
 }
+
 var work = {
 	"jobs" : [
 	{
 		"employer" : "IBM România",
 		"title" : "IBM Infrastructure Specialist AIX Linux",
-		"dates" : "aprilie 2016 – Prezent (9 luni)",
+		"dates" : [ "Aprilie 2016", moment().format('MMMM YYYY')],
 		"description" : "<b>WebSphere Application Servers </b><br> \
 	- instalare <br> \
 		&emsp; instalare binare <br> \
@@ -73,7 +75,7 @@ var work = {
 	{
 		"employer" : "Steelcase",
 		"title" : "Technical support Specialist",
-		"dates" : "octombrie 2015 – aprilie 2016 (7 luni)",
+		"dates" : ["Octombrie 2015", "Aprilie 2016"],
 		"description" : "<b> Suport tehnic pentru produsele tehnologice : </b> <br> \
 		<b>Media:Scape </b><br> \
 	- instalare <br> \
@@ -92,7 +94,7 @@ var work = {
 	{
 		"employer" : "Pentalog România",
 		"title" : "System Administrator",
-		"dates" : "mai 2012 - octombire 2015 (3 ani și 6 luni)",
+		"dates" : ["Mai 2012", "Octombrie 2015"],
 		"description" : "<b>Administrarea parcului IT a companiei </b><br> \
 <b>Recepție de echipamente noi și pregătirea pentru exploatare</b> <br> \
 - Instalare de sistem de operare, integrare Active Directory, drepturi de utilizator. <br> \
@@ -129,7 +131,7 @@ var work = {
 	{
 		"employer" : "Employer4",
 		"title" : "Employee4",
-		"dates" : "undefined",
+		"dates" : ["Decembrie 2012","Aprilie 2016"],
 		"description" : "To be filled in",
 		"location" : "Strasbourg"
 	}			
@@ -185,10 +187,27 @@ function displayWork () {
 		var prettyDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$('.work-entry:last').append(
 			prettyDescription);
+//		var duration = calcDuration(work.jobs[job].dates[0], work.jobs[job].dates[1]);
+		var duration = moment(work.jobs[job].dates[1], "MMMM YYYY").diff(moment(work.jobs[job].dates[0],"MMMM YYYY"));
+		var duration = moment.duration(duration).add(1, 'month');
 
-		var prettyDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+
+		var prettyDates = HTMLworkDates.replace("%data%", work.jobs[job].dates.join(" - "));
 		$('.work-entry:last').append(
 			prettyDates);
+		var correction = (moment.duration(duration, "months").format( "Y [ani] M [luni]")).split(" ")
+		if (correction[2] == 1){
+			correction[3] = "luna"
+		}
+		if (correction[0] == 1){
+			correction[1] = "an"
+
+		}
+
+		var prettyDuration = HTMLworkDuration.replace("%data%", correction.join (" "))
+		console.log(correction)
+		$('.work-entry:last').append(
+			prettyDuration);
 	}
 }
 
@@ -284,7 +303,7 @@ function workTop () {
 displayHeader ()
 
 // Set the margin top size according to the header size and update on resize
-setTimeout(workTop, 150); // set timeout to fix incorrect value for header size
+setTimeout(workTop, 500); // set timeout to fix incorrect value for header size
 
 workTop ();
 
