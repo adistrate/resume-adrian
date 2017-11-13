@@ -1,4 +1,4 @@
-﻿var bio = {
+var bio = {
 	'name' : 'Istrate Adrian',
 	'role' : 'Infrastructure Specialist AIX Linux',
 	'contacts' : {

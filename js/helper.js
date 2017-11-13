@@ -74,18 +74,18 @@ function calcDuration (d1, d2) {
 */
 
 /*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
+The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
 */
-clickLocations = [];
+var clickLocations = [];
 
 function logClicks(x,y) {
   clickLocations.push(
     {
-      "x": x,
-      "y": y
+      x: x,
+      y: y
     }
   );
-  console.log("x location: " + x + "; y location: " + y);
+  console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
@@ -107,14 +107,16 @@ Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
 
-  var locations;        
+  var locations;
 
   var mapOptions = {
     disableDefaultUI: true
   };
 
-  // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
+  /*
+  For the map to be displayed, the googleMap var must be
+  appended to #mapDiv in resumeBuilder.js.
+  */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
@@ -123,24 +125,28 @@ function initializeMap() {
   written for bio, education, and work.
   */
   function locationFinder() {
-    
+
     // initializes an empty array
     var locations = [];
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
-    
+
     // iterates through school locations and appends each location to
-    // the locations array
-    for (var school in education.schools) {
-      locations.push(education.schools[school].location);
-    }
+    // the locations array. Note that forEach is used for array iteration
+    // as described in the Udacity FEND Style Guide:
+    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    education.schools.forEach(function(school){
+      locations.push(school.location);
+    });
 
     // iterates through work locations and appends each location to
-    // the locations array
-    for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
-    }
+    // the locations array. Note that forEach is used for array iteration
+    // as described in the Udacity FEND Style Guide:
+    // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    work.jobs.forEach(function(job){
+      locations.push(job.location);
+    });
 
     return locations;
   }
@@ -193,7 +199,7 @@ function initializeMap() {
   */
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      createMapMarker(results[0])
+      createMapMarker(results[0]);
     }
   }
 
@@ -206,19 +212,18 @@ function initializeMap() {
     // creates a Google place search service object. PlacesService does the work of
     // actually searching for location data.
     var service = new google.maps.places.PlacesService(map);
-    
-    // Iterates through the array of locations, creates a search object for each location
-    for (place in locations) {
 
+    // Iterates through the array of locations, creates a search object for each location
+      locations.forEach(function(place){
       // the search request object
       var request = {
-        query: locations[place]
-      }
+        query: place
+      };
 
-      // Actually searches the Google Maps API for location data and runs the callback 
+      // Actually searches the Google Maps API for location data and runs the callback
       // function with the search results after each search.
       service.textSearch(request, callback);
-    }
+    });
   }
 
   // Sets the boundaries of the map based on pin locations
@@ -230,8 +235,8 @@ function initializeMap() {
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-  
-};
+
+}
 
 /*
 Uncomment the code below when you're ready to implement a Google Map!
@@ -240,7 +245,7 @@ Uncomment the code below when you're ready to implement a Google Map!
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
 
-// Vanilla JS way to listen for resizing of the window 
+// Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
 window.addEventListener('resize', function(e) {
   // Make sure the map bounds get updated on page resize
