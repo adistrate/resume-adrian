@@ -26,7 +26,7 @@ var HTMLlocation = "<li class='flex-item'><span class='blue-text'>location</span
 var HTMLbioPic = "<img src='%data%' class='biopic'>";
 var HTMLWelcomeMsg = "<span class='welcome-message'>%data%</span>";
 
-var HTMLskillsStart = "<h3 id='skillsH3'>Skills at a Glance:</h3><ul id='skills' class='flex-box'></ul>";
+var HTMLskillsStart = "<h3 id='skillsH3'>Rezumat abilități:</h3><ul id='skills' class='flex-box'></ul>";
 var HTMLskills = "<li class='flex-item'><span class='white-text'>%data%</span></li>";
 
 var HTMLworkStart = "<div class='work-entry'></div>";
@@ -59,7 +59,7 @@ var HTMLonlineURL = "<br><a href='#'>%data%</a>";
 
 var internationalizeButton = "<button>Internationalize</button>";
 var googleMap = "<div id='map'></div>";
-
+/*
 var months = [ "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December" ];
 
@@ -71,6 +71,7 @@ function calcDuration (d1, d2) {
     months += d2.getMonth();
     return months <= 0 ? 0 : months;
 }
+*/
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
